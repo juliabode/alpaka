@@ -339,3 +339,6 @@ footer.meta .author { display: none; }
 footer { height: 40px; }
 .articles { width: 700px; }
 #sidebar { width: 220px; margin-left: 40px; }
+
+.categories { color: #c2325b; font-style: italic; font-size: 14px; }
+.categories a { text-decoration: none; color: #000; font-style: normal; }

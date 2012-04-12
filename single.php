@@ -20,9 +20,12 @@
 
         <?php the_tags( 'Tags: ', ', ', ''); ?>
 
+        <div class="categories">Kategorien:
+          <?php wp_list_categories( array('orderby' => 'name', 'style' => 'none') ); ?>
+        </div>
+
       </div>
 
-      <?php edit_post_link('Edit this entry','','.'); ?>
 
           </div>
     </article>
