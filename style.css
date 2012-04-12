@@ -284,7 +284,7 @@ article.post, #comments-wrapper {
 }
 .post p { margin-bottom: 10px; }
 .home article.post { height: 280px; }
-.home article .inner-wrapper { height: 236px; }
+.home article .inner-wrapper, .archive article .inner-wrapper { height: 236px; }
 #sidebar {
   float: right;
   width: 240px;
