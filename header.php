@@ -126,7 +126,7 @@
 
     <header id="header">
           <div class="content">
-            <a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a>
+            <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a>
           </div>
     </header>
 
@@ -136,10 +136,12 @@
         <nav>
           <div class="content">
       <?php
+        $siteurl = (get_bloginfo('language') == "en-US") ? get_bloginfo("url") . "/en" : get_bloginfo("url") ;
         wp_nav_menu(array(
           'menu'      => 'main_menu',
           'menu_id'   => 'navigation',
           'container' => false,
+          'items_wrap' => '<ul><li id="item-id"><a href="' . $siteurl . '/">HOME</a> </li>%3$s</ul>'
         ));
       ?>
           </div>

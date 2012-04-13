@@ -342,3 +342,5 @@ footer { height: 40px; }
 
 .categories { color: #c2325b; font-style: italic; font-size: 14px; }
 .categories a { text-decoration: none; color: #000; font-style: normal; }
+
+.entry-content img.aligncenter { display: block; margin: 0 auto; }

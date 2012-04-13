@@ -86,4 +86,9 @@ function new_excerpt_more($more) {
   return ' <a href="'. get_permalink($post->ID) . '">...</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+add_action('after_setup_theme', 'my_theme_setup');
+function my_theme_setup(){
+    load_theme_textdomain('alpaka', get_template_directory() . '/languages');
+}
 ?>

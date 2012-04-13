@@ -20,8 +20,7 @@
 
         <?php the_tags( 'Tags: ', ', ', ''); ?>
 
-        <div class="categories">Kategorien:
-          <?php wp_list_categories( array('orderby' => 'name', 'style' => 'none') ); ?>
+        <div class="categories"><?php _e("Categories: ", "alpaka"); the_category( ', '); ?>
         </div>
 
       </div>
