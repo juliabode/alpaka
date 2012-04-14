@@ -344,3 +344,6 @@ footer { height: 40px; }
 .categories a { text-decoration: none; color: #000; font-style: normal; }
 
 .entry-content img.aligncenter { display: block; margin: 0 auto; }
+
+.next-posts { float: left; }
+.prev-posts { float: right; }
