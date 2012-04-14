@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Alpaka\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-13 16:31+0100\n"
+"POT-Creation-Date: 2012-04-14 23:17+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Julia <julia.bode@lulisaur.us>\n"
 "Language-Team: Lulisaurus <julia.bode@lulisaur.us>\n"
@@ -70,6 +70,14 @@ msgstr "&#8217; Kategorie"
 #: 404.php:3
 msgid "Error 404 - Page Not Found"
 msgstr "404 Fehler - Seite nicht gefunden"
+
+#: _/inc/nav.php:2
+msgid "&laquo; Older Entries"
+msgstr "&laquo; Ältere Einträge"
+
+#: _/inc/nav.php:3
+msgid "Newer Entries &raquo;"
+msgstr "Neuere Einträge &raquo;"
 
 #, fuzzy
 #~ msgid "Category Archives: %s"
