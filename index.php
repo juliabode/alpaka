@@ -13,8 +13,32 @@
                     the_post_thumbnail();
                   } else { ?>
 
-            <img class="left" src="<?php bloginfo('template_directory'); ?>/timthumb.php?src=<?php echo getImageForThumb('1'); ?>&w=240&h=240&zc=1" width="240" height="240"/>
+                    <?php
+                      $_origin_id = get_post_meta($post->ID, 'origin_id', TRUE);
+                      $containsThumb = preg_match('/timthumb/', getImageForThumb('1'));
 
+                      if ((!empty($_origin_id)) || (!empty($containsThumb)))
+                      {
+                        $_thumbString = '<img src="%s" alt="%s">';
+                        $_thumbUrl = urldecode(getImageForThumb('1'));
+                        $thumb = str_replace('w=636', 'w=240', $_thumbUrl);
+                        $thumb = str_replace('h=240', 'h=240', $thumb);
+
+                        $_thumb = sprintf($_thumbString, $thumb, get_the_title($post->ID));
+
+                        unset($_thumbString, $_thumbUrl, $thumb);
+                      }
+                      else
+                      {
+                         $_thumb = sprintf('<img src="%s/timthumb.php?src=%s&amp;w=240&amp;h=240&amp;zc=1" alt="%s">',
+                                get_bloginfo('template_directory'),
+                                getImageForThumb('1'),
+                                get_the_title($_post_id)
+                              );
+                      }
+
+                      ?>
+              <?php print($_thumb); ?>
             <?php } ?>
 
       <div class="entry right">
