@@ -97,7 +97,8 @@
   <!-- all our JS is at the bottom of the page, except for Modernizr. -->
   <script src="<?php bloginfo('template_directory'); ?>/_/js/modernizr-1.7.min.js"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+  <link href="<?php bloginfo('template_directory'); ?>/lightbox.css" rel="stylesheet" />
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
