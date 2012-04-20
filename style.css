@@ -339,6 +339,7 @@ footer.meta .author { display: none; }
 footer { height: 40px; }
 .articles { width: 700px; }
 #sidebar { width: 220px; margin-left: 40px; }
+#sidebar .widget { margin-bottom: 20px; }
 
 .categories { color: #c2325b; font-style: italic; font-size: 14px; }
 .categories a { text-decoration: none; color: #000; font-style: normal; }
@@ -347,3 +348,10 @@ footer { height: 40px; }
 
 .next-posts { float: left; }
 .prev-posts { float: right; }
+
+.widget h2 {
+  border-bottom: 7px solid #b5b5b5;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  line-height: 20px;
+}
