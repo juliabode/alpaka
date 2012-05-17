@@ -28,7 +28,7 @@
                 <?php if ( has_post_thumbnail() ) {
                         $thumb = get_the_post_thumbnail();
                         $search = array('/src="/', '/.png"/', '/="240"/');
-                        $replace = array('src="http://alpaka.localhost/wp-content/themes/alpaka/timthumb.php?src=', '.png&w=125&h=125&zc=1"', '="125"');
+                        $replace = array('src="http://alpaka.me/wp-content/themes/alpaka/timthumb.php?src=', '.png&w=125&h=125&zc=1"', '="125"');
                         $thumb = preg_replace($search, $replace, $thumb);
                         //echo '<div class="' . $thumb . '"></div>';
                         echo $thumb;
