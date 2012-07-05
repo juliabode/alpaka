@@ -91,4 +91,30 @@ add_action('after_setup_theme', 'my_theme_setup');
 function my_theme_setup(){
     load_theme_textdomain('alpaka', get_template_directory() . '/languages');
 }
+
+
+// THIS INCLUDES THE THUMBNAIL IN OUR RSS FEED
+add_filter( 'the_excerpt_rss', 'alpaka_insertThumbnailRSS' );
+add_filter( 'the_content_feed', 'alpaka_insertThumbnailRSS' );
+function alpaka_insertThumbnailRSS( $content ) {
+
+  global $post; $posts;
+
+  if ( has_post_thumbnail( $post->ID ) )
+    $content = '' . get_the_post_thumbnail( $post->ID ) . '' . $content;
+  else
+    $first_img = '';
+    ob_start();
+    ob_end_clean();
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+    $first_img = $matches[1][0];
+
+    if(!empty($first_img)){
+      $content = '<div>' . $first_img . '</div>' . $content;
+    }
+
+  return $content;
+}
+
+
 ?>
