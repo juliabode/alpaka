@@ -22,6 +22,7 @@
                         $_thumbString = '<img src="%s" alt="%s">';
                         $_thumbUrl = urldecode(getImageForThumb('1'));
                         $thumb = str_replace('w=636', 'w=240', $_thumbUrl);
+                        $thumb = str_replace('w=313', 'w=240', $thumb);
                         $thumb = str_replace('h=315', 'h=240', $thumb);
 
                         $_thumb = sprintf($_thumbString, $thumb, get_the_title($post->ID));
