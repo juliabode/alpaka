@@ -8,39 +8,41 @@
 
     <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
           <div class="inner-wrapper">
+            <a href="<?php the_permalink() ?>">
 
-            <?php if ( has_post_thumbnail() ) {
-                    the_post_thumbnail();
-                  } else { ?>
+              <?php if ( has_post_thumbnail() ) {
+                      the_post_thumbnail();
+                    } else { ?>
 
-                    <?php
-                      $_origin_id = get_post_meta($post->ID, 'origin_id', TRUE);
-                      $containsThumb = preg_match('/timthumb/', getImageForThumb('1'));
+                      <?php
+                        $_origin_id = get_post_meta($post->ID, 'origin_id', TRUE);
+                        $containsThumb = preg_match('/timthumb/', getImageForThumb('1'));
 
-                      if ((!empty($_origin_id)) || (!empty($containsThumb)))
-                      {
-                        $_thumbString = '<img src="%s" alt="%s">';
-                        $_thumbUrl = urldecode(getImageForThumb('1'));
-                        $thumb = str_replace('w=636', 'w=240', $_thumbUrl);
-                        $thumb = str_replace('w=313', 'w=240', $thumb);
-                        $thumb = str_replace('h=315', 'h=240', $thumb);
+                        if ((!empty($_origin_id)) || (!empty($containsThumb)))
+                        {
+                          $_thumbString = '<img src="%s" alt="%s">';
+                          $_thumbUrl = urldecode(getImageForThumb('1'));
+                          $thumb = str_replace('w=636', 'w=240', $_thumbUrl);
+                          $thumb = str_replace('w=313', 'w=240', $thumb);
+                          $thumb = str_replace('h=315', 'h=240', $thumb);
 
-                        $_thumb = sprintf($_thumbString, $thumb, get_the_title($post->ID));
+                          $_thumb = sprintf($_thumbString, $thumb, get_the_title($post->ID));
 
-                        unset($_thumbString, $_thumbUrl, $thumb);
-                      }
-                      else
-                      {
-                         $_thumb = sprintf('<img src="%s/timthumb.php?src=%s&amp;w=240&amp;h=240&amp;zc=1" alt="%s">',
-                                get_bloginfo('template_directory'),
-                                getImageForThumb('1'),
-                                get_the_title($_post_id)
-                              );
-                      }
+                          unset($_thumbString, $_thumbUrl, $thumb);
+                        }
+                        else
+                        {
+                           $_thumb = sprintf('<img src="%s/timthumb.php?src=%s&amp;w=240&amp;h=240&amp;zc=1" alt="%s">',
+                                  get_bloginfo('template_directory'),
+                                  getImageForThumb('1'),
+                                  get_the_title($_post_id)
+                                );
+                        }
 
-                      ?>
-              <?php print($_thumb); ?>
-            <?php } ?>
+                        ?>
+                <?php print($_thumb); ?>
+              <?php } ?>
+            </a>
 
       <div class="entry right">
         <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
