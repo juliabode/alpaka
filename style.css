@@ -307,7 +307,7 @@ article.post, #comments-wrapper {
 }
 #category-project-52-inner { width: 636px; }
 .post p { margin-bottom: 10px; }
-.post li { list-style: circle inside none; margin: 5px 0; }
+.post li { list-style: circle outside none; margin: 5px 0 5px 20px; }
 .home article.post { height: 280px; }
 .home article .inner-wrapper, .archive article .inner-wrapper { height: 236px; }
 #sidebar {
