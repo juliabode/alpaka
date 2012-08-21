@@ -6,7 +6,7 @@
     <?php $query_args = array(
             'cat'            => 4,
             'posts_per_page' => -1,
-            'post__not_in'  => array(19, 676),
+            'post__not_in'  => array(19, 676, 744),
           );
           query_posts($query_args); ?>
 
