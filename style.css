@@ -380,3 +380,5 @@ footer { height: 40px; }
   padding-bottom: 0;
   line-height: 20px;
 }
+
+.wp-paginate { text-align: center; }
