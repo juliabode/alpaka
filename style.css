@@ -420,7 +420,7 @@ footer { height: 40px; }
 
 .wpp-popular-posts img {
   width: 30px;
-  padding-top: 4px;
+  padding: 4px 0;
   float: left;
 }
 
