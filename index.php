@@ -2,7 +2,7 @@
 
   <div class="article-wrap">
     <div class="left articles">
-      <?php update_option('posts_per_page', 5);?>
+      <?php update_option('posts_per_page', 10);?>
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
