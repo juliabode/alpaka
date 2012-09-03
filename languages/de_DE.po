@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Alpaka\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-14 23:17+0100\n"
+"POT-Creation-Date: 2012-09-03 13:09+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Julia <julia.bode@lulisaur.us>\n"
 "Language-Team: Lulisaurus <julia.bode@lulisaur.us>\n"
@@ -24,6 +24,14 @@ msgstr ""
 #: functions.php:37
 msgid "These are widgets for the sidebar."
 msgstr ""
+
+#: yarpp-template-automatic-thumbnail.php:56
+msgid "Read more of this:"
+msgstr "Hier gibt's noch mehr davon:"
+
+#: yarpp-template-automatic-thumbnail.php:73
+msgid "No related posts found."
+msgstr "Keine ähnlichen Artikel gefunden."
 
 #: comments.php:49
 msgid "Leave a Reply"
@@ -71,13 +79,11 @@ msgstr "&#8217; Kategorie"
 msgid "Error 404 - Page Not Found"
 msgstr "404 Fehler - Seite nicht gefunden"
 
-#: _/inc/nav.php:2
-msgid "&laquo; Older Entries"
-msgstr "&laquo; Ältere Einträge"
+#~ msgid "&laquo; Older Entries"
+#~ msgstr "&laquo; Ältere Einträge"
 
-#: _/inc/nav.php:3
-msgid "Newer Entries &raquo;"
-msgstr "Neuere Einträge &raquo;"
+#~ msgid "Newer Entries &raquo;"
+#~ msgstr "Neuere Einträge &raquo;"
 
 #, fuzzy
 #~ msgid "Category Archives: %s"

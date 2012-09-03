@@ -23,6 +23,10 @@
         <div class="categories"><?php _e("Categories: ", "alpaka"); the_category( ', '); ?>
         </div>
 
+        <div class="related_posts">
+          <?php if (function_exists( related_posts() )) related_posts(); ?>
+        </div>
+
       </div>
 
 

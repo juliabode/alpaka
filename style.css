@@ -166,7 +166,7 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 
 .post {}
 
-.entry-content {}
+.entry-content { overflow: hidden; }
 .entry-content a {}
 .entry-content a:hover {}
 
@@ -382,3 +382,30 @@ footer { height: 40px; }
 }
 
 .wp-paginate { text-align: center; }
+
+.related_posts { margin: 20px 0; }
+.related_posts h4 { font-size: 15px; font-weight: normal; }
+
+#yarpp-related-posts li {
+  float: left;
+  width: 140px;
+  margin: 5px 24px 5px 0;
+  list-style: none;
+}
+
+#yarpp-related-posts li:last-child { margin-right: 0; }
+
+#yarpp-related-posts li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  text-align: center;
+  line-height: 18px;
+}
+
+.inner-related-posts {
+  background: #F1F1F1;
+  border: 1px solid #B7B7B7;
+  padding: 4px;
+  border-radius: 2px;
+}
