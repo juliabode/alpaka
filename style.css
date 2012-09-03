@@ -409,3 +409,26 @@ footer { height: 40px; }
   padding: 4px;
   border-radius: 2px;
 }
+
+.wpp-popular-posts li {
+  overflow: hidden;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #999;
+}
+
+.wpp-popular-posts li:last-child { border-bottom: none; }
+
+.wpp-popular-posts img {
+  width: 30px;
+  padding-top: 4px;
+  float: left;
+}
+
+.wpp-popular-posts a.wpp-post-title {
+  width: 185px;
+  margin-left: 5px;
+  float: left;
+  color: #222;
+  text-decoration: none;
+  font-style: italic;
+}
