@@ -410,21 +410,21 @@ footer { height: 40px; }
   border-radius: 2px;
 }
 
-.wpp-popular-posts li {
+.popular-posts li {
   overflow: hidden;
   margin-bottom: 5px;
   border-bottom: 1px solid #999;
 }
 
-.wpp-popular-posts li:last-child { border-bottom: none; }
+.popular-posts li:last-child { border-bottom: none; }
 
-.wpp-popular-posts img {
+.popular-posts img {
   width: 30px;
   padding: 4px 0;
   float: left;
 }
 
-.wpp-popular-posts a.wpp-post-title {
+.popular-posts a.wpp-post-title {
   width: 185px;
   margin-left: 5px;
   float: left;
