@@ -162,7 +162,7 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 /* And here begins the Wordpress fun.
 -------------------------------------------------------------------------------*/
 
-#page-wrap {width: 960px; margin: 20px auto;}
+#page-wrap {width: 1020px; margin: 20px auto;}
 
 .post {}
 
@@ -172,8 +172,6 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 
 #meta {}
 .postmetadata {}
-
-#sidebar {}
 
 .navgation {}
 .next-posts {}
@@ -312,7 +310,8 @@ article.post, #comments-wrapper {
 .home article .inner-wrapper, .archive article .inner-wrapper { height: 236px; }
 #sidebar {
   float: right;
-  width: 240px;
+  width: 300px;
+  margin-left: 20px;
 }
 article .inner-wrapper, #comments-wrapper .inner-wrapper, #category-project-52-inner {
   border: 2px dashed #fcd5a5;
@@ -350,7 +349,7 @@ footer.meta {
   line-height: 20px;
   padding: 3px;
   position: absolute;
-  right: -20px;
+  left: -35px;
   text-align: center;
   top: -20px;
   width: 60px;
@@ -363,8 +362,7 @@ footer.meta .author { display: none; }
 
 footer { height: 40px; }
 .articles { width: 700px; }
-#sidebar { width: 220px; margin-left: 40px; }
-#sidebar .widget { margin-bottom: 20px; }
+#sidebar .widget { margin-bottom: 20px; overflow: hidden; }
 
 .categories { color: #c2325b; font-style: italic; font-size: 14px; }
 .categories a { text-decoration: none; color: #000; font-style: normal; }
@@ -379,6 +377,7 @@ footer { height: 40px; }
   margin-bottom: 20px;
   padding-bottom: 0;
   line-height: 20px;
+  padding-top: 8px;
 }
 
 .wp-paginate { text-align: center; }
@@ -425,7 +424,7 @@ footer { height: 40px; }
 }
 
 .popular-posts a.wpp-post-title {
-  width: 185px;
+  width: 265px;
   margin-left: 5px;
   float: left;
   color: #222;
