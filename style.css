@@ -409,6 +409,10 @@ footer { height: 40px; }
   border-radius: 2px;
 }
 
+.inner-related-posts:hover {
+  background: #CFCFCF;
+}
+
 .popular-posts li {
   overflow: hidden;
   margin-bottom: 5px;
