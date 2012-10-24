@@ -431,3 +431,24 @@ footer { height: 40px; }
   text-decoration: none;
   font-style: italic;
 }
+
+#commentform input#author, #commentform input#email, #commentform input#url, #commentform textarea {
+  background: transparent;
+  border: 2px inset #DFDFDF;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+#commentform input#author:focus, #commentform input#email:focus, #commentform input#url:focus, #commentform textarea:focus { background: #eaeaea; }
+
+/* =Print
+----------------------------------------------- */
+
+@media print {
+  body {
+    font-size: 10px;
+  }
+  header, nav, footer, #sidebar, #comments-wrapper, .related_posts { display: none; }
+  article, .articles, .article-wrap { width: 100% }
+}
