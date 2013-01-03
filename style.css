@@ -48,7 +48,8 @@ html {overflow-y: scroll;}
 
 /* we use a lot of ULs that aren't bulleted.
   don't forget to restore the bullets within content. */
-ul {list-style: none;}
+ul, ol {list-style: none;}
+ol {counter-reset: li;}
 
 blockquote, q {quotes: none;}
 
@@ -306,6 +307,49 @@ article.post, #comments-wrapper {
 #category-project-52-inner { width: 636px; }
 .post p { margin-bottom: 10px; }
 .post li { list-style: circle outside none; margin: 5px 0 5px 20px; }
+
+.numbered-list {
+  background-image: -webkit-linear-gradient(top, #eee 1px, transparent 1px);
+  background-image: -moz-linear-gradient(top, #eee 1px, transparent 1px);
+  background-image: -ms-linear-gradient(top, #eee 1px, transparent 1px);
+  background-image: -o-linear-gradient(top, #eee 1px, transparent 1px);
+  background-size: 100% 24px;
+  background-position: 0 -1px;
+  background-color: #fff;
+  width: 500px;
+  margin: 30px auto;
+  border: 1px solid #dfdfdf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 52px 40px;
+  position: relative;
+  z-index: 0;
+  -webkit-box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+}
+.numbered-list li { list-style: none; position: relative; margin: 0 0 24px 20px; }
+.numbered-list li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.2em;
+  top: -.3em;
+  background-color: #ffd797;
+  height: 1.7em;
+  width: 1.7em;
+  border: .1em solid rgba(0, 0, 0, .08);
+  text-align: center;
+  font: italic bold 1em/1.5em Georgia, Serif;
+  color: #444;
+  border-radius: 1.5em;
+}
+
 .home article.post { height: 280px; }
 .home article .inner-wrapper, .archive article .inner-wrapper { height: 236px; }
 #sidebar {
