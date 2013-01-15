@@ -48,7 +48,13 @@
         <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 
         <?php include (TEMPLATEPATH . '/_/inc/meta.php' ); ?>
-        <?php the_excerpt(); ?>
+       <?php
+          if($post->post_excerpt == ''){
+            the_excerpt();
+          } else {
+            echo get_the_excerpt() . ' <a href="' . get_permalink() . '">&hellip;</a>';
+          }
+        ?>
       </div>
 
       </div>
