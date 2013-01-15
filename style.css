@@ -281,6 +281,10 @@ article.post, #comments-wrapper {
   line-height: 24px;
   position: relative;
 }
+article.post.pages {
+  width: 100%;
+}
+article.pages .entry { width: 100%; }
 #category-project-52-wrapper article.post { background: none; }
 #category-project-52-wrapper article.post .inner-wrapper { border: none; padding: 0; }
 #category-project-52-wrapper {
