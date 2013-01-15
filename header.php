@@ -138,6 +138,7 @@
       <?php
         $siteurl = (get_bloginfo('language') == "en-US") ? get_bloginfo("url") . "/en" : get_bloginfo("url") ;
         wp_nav_menu(array(
+          'theme_location' => 'main_menu',
           'menu'      => 'main_menu',
           'menu_id'   => 'navigation',
           'container' => false,

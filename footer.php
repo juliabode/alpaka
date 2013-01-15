@@ -1,4 +1,12 @@
     <footer id="footer" class="source-org vcard copyright">
+      <div class="separator"></div>
+      <?php
+        wp_nav_menu(array(
+          'theme_location'  => 'footer_menu',
+          'menu_id'         => 'footer_nav',
+          'container'       => false
+        ));
+      ?>
     </footer>
 
   </div>

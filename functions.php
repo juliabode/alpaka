@@ -45,6 +45,7 @@
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
 
 register_nav_menu('main_menu', 'The Alpaka main menu');
+register_nav_menu('footer_menu', 'The Alpaka footer menu');
 
 function getImageForThumb($num) {
   global $more;

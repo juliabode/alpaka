@@ -405,6 +405,15 @@ footer.meta .author { display: none; }
 .qtrans_flag { margin-top: 15px; }
 
 footer { height: 40px; }
+#footer { margin-top: 40px; }
+#footer_nav li { float: left; margin: 5px 0; }
+#footer_nav a {
+  padding: 0 10px;
+  color: #333;
+  text-decoration: none;
+  border-right: 1px solid #afafaf;
+}
+#footer_nav li:last-child a { border-right: none; }
 .articles { width: 700px; }
 #sidebar .widget { margin-bottom: 20px; overflow: hidden; }
 
