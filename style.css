@@ -269,7 +269,7 @@ nav {
   font-size: 18px;
 }
 .content { width: 960px; margin: 0 auto; }
-article.post, #comments-wrapper {
+article.post, #comments-wrapper, #category-project-52-wrapper {
   width: 680px;
   float: left;
   padding: 10px;
