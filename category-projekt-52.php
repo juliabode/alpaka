@@ -12,10 +12,11 @@
 
     <?php if (have_posts()) : ?>
 
-      <h2><?php single_cat_title(); ?></h2>
-
-      <div id="category-project-52-wrapper" class="left">
+      <div id="category-project-52-wrapper" class="left">        
         <div id="category-project-52-inner" class="left">
+          <h2><?php single_cat_title(); ?></h2>
+          <div class="description"><?php echo category_description(); ?></div>
+
           <ul>
 
             <?php while (have_posts()) : the_post(); ?>

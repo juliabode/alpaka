@@ -286,6 +286,7 @@ article.post.pages {
 }
 article.pages .entry { width: 100%; }
 #category-project-52-wrapper article.post { background: none; }
+#category-project-52-wrapper div.description { margin-bottom: 30px; }
 #category-project-52-wrapper article.post .inner-wrapper { border: none; padding: 0; }
 #category-project-52-wrapper {
   background: url("images/bg-article.png") repeat scroll 0 0 transparent;
