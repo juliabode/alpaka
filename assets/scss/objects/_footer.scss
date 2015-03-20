@@ -1,0 +1,17 @@
+.content-info {
+    margin-bottom: $space-quad;
+    margin-top: $space-quarter;
+    background-color: $gray-light;
+    border: 1px solid $gray-light;
+    overflow: hidden;
+    padding: 12px;
+
+    p, a {
+        font-size: 12px;
+        color: $gray;
+    }
+
+    a.imprint {
+        float: right;
+    }
+}

@@ -1,7 +1,13 @@
-<?php get_header(); ?>
+<?php get_template_part('templates/page', 'header'); ?>
 
-	<h2><?php _e('Error 404 - Page Not Found','html5reset'); ?></h2>
+<div class="alert alert-warning">
+  <?php _e('Sorry, but the page you were trying to view does not exist.', 'roots'); ?>
+</div>
 
-<?php get_sidebar(); ?>
+<p><?php _e('It looks like this was the result of either:', 'roots'); ?></p>
+<ul>
+  <li><?php _e('a mistyped address', 'roots'); ?></li>
+  <li><?php _e('an out-of-date link', 'roots'); ?></li>
+</ul>
 
-<?php get_footer(); ?>
+<?php get_search_form(); ?>

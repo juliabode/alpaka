@@ -1,0 +1,267 @@
+.off-canvas-wrap {
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    overflow: hidden;
+
+    @media all and (min-width: $bp-med) {
+        padding-top: $space;
+    }
+}
+
+.inner-wrap {
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    *zoom: 1;
+    -webkit-transition: -webkit-transform 500ms ease;
+    -moz-transition: -moz-transform 500ms ease;
+    -ms-transition: -ms-transform 500ms ease;
+    -o-transition: -o-transform 500ms ease;
+    transition: transform 500ms ease;
+
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.left-off-canvas-menu {
+    -webkit-backface-visibility: hidden;
+    width: 250px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    overflow-y: auto;
+    background: #333333;
+    z-index: 1001;
+    box-sizing: content-box;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+
+    * {
+        -webkit-backface-visibility: hidden;
+        overflow: hidden;
+
+        @media all and (min-width: $bp-med) {
+            overflow: initial;
+        }
+    }
+
+    @media all and (min-width: $bp-med) {
+        position: initial;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+        background: rgba(0, 0, 0, 0);
+        width: auto;
+        overflow-y: initial;
+    }
+}
+
+ul.off-canvas-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    > li a {
+        padding: 0.3rem 0.9375rem;
+        color: #999999;
+        text-transform: uppercase;
+        background: #444444;
+        border-top: 1px solid #5e5e5e;
+        border-bottom: none;
+        margin: 0;
+    }
+
+    li a {
+        display: block;
+        padding: 0.66667rem;
+        color: rgba(255, 255, 255, 0.7);
+        border-bottom: 1px solid #262626;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        @media all and (min-width: $bp-med) {
+            font-size: 18px;
+            color: #333333;
+            padding: 5px 8px;
+            line-height: 24px;
+            font-family: 'Cuprum', sans-serif;
+            margin: 34px 5px;
+            border: none;
+            background: none;
+            text-transform: none;
+        }
+    }
+
+    @media all and (min-width: $bp-med) {
+        float: right;
+        margin-bottom: 0;
+        position: relative;
+
+        ul.dropdown-menu {
+            box-shadow: 0px 2px 6px rgba(0,0,0,.75);
+            border-top: 3px solid $red;
+            list-style: none;
+            margin-top: -20px;
+
+            li {
+
+                a {
+                    margin: 0;
+                    text-align: center;
+                    padding: 8px 12px;
+                    line-height: 24px;
+                    list-style: none;
+                    white-space: nowrap;
+                }
+
+                &.active a,
+                &:hover a {
+                    background-color: $red;
+                    background-image: none;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .active > a,
+    a.hover,
+    li:hover > a {
+        @media all and (min-width: $bp-med) {
+            color: #A50715;
+            background-color: transparent;
+        }
+    }
+
+    > li {
+        @media all and (min-width: $bp-med) {
+            float: left;
+
+            a {
+                font-size: 15px;
+                color: #333333;
+                padding: 10px 0 10px 9px;
+                line-height: 10px;
+                margin: 10px 5px 28px;
+            }
+        }
+
+        @media all and (min-width: $bp-med-2) {
+            a {
+                font-size: 17px;
+                padding: 10px 0 10px 7px;
+            }
+        }
+
+        @media all and (min-width: $bp-large-2) {
+            a {
+                font-size: 18px;
+                padding: 10px 0 10px 15px;
+            }
+        }
+    }
+
+    .icon-home {
+
+        > a {
+            font-family: $font;
+            line-height: 24px;
+
+            @media all and (min-width: $bp-med) {
+                text-indent: -99999px;
+            }
+        }
+    }
+}
+
+ul.dropdown-menu li a {
+    background-color: transparent;
+}
+
+.move-right {
+    > .inner-wrap {
+        -webkit-transform: translate3d(250px, 0, 0);
+        -moz-transform: translate3d(250px, 0, 0);
+        -ms-transform: translate3d(250px, 0, 0);
+        -o-transform: translate3d(250px, 0, 0);
+        transform: translate3d(250px, 0, 0);
+    }
+
+    a.exit-off-canvas {
+        -webkit-backface-visibility: hidden;
+        transition: background 300ms ease;
+        cursor: pointer;
+        box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+        display: block;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: 1002;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+.lt-ie10 {
+    .left-off-canvas-menu {
+        left: -250px;
+    }
+
+    .move-right > .inner-wrap {
+        left: 250px;
+    }
+}
+
+.csstransforms.no-csstransforms3d {
+    .left-off-canvas-menu {
+        -webkit-transform: translate(-100%, 0);
+        -moz-transform: translate(-100%, 0);
+        -o-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+
+    .move-right > .inner-wrap {
+        -webkit-transform: translate(250px, 0);
+        -moz-transform: translate(250px, 0);
+        -o-transform: translate(250px, 0);
+        transform: translate(250px, 0);
+    }
+}
+
+a.menu-icon {
+    text-indent: 1.94444rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    line-height: 1.83333rem;
+    padding: 0;
+    color: #FFF;
+    position: relative;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        display: block;
+        width: 0.88889rem;
+        height: 0;
+        left: 0.72222rem;
+        top: 0.27778rem;
+        -webkit-box-shadow: 1px 10px 1px 1px #FFF, 1px 16px 1px 1px #FFF, 1px 22px 1px 1px #FFF;
+        box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF;
+    }
+
+    @media all and (min-width: $bp-med) {
+        display: none;
+    }
+}

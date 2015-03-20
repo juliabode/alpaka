@@ -1,0 +1,37 @@
+html, body {
+    font: 100%/1.5 $font;
+}
+
+body {
+    margin: 0;
+    background: url("../img/bg.png");
+
+    @media all and (min-width: $bp-med) {
+        padding-top: $space-double;
+    }
+}
+
+.wrap {
+    padding-bottom: 40px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: $brand-primary;
+
+    &:hover {
+        color: $brand-primary;
+        text-decoration: underline;
+    }
+}
+
+iframe {
+    max-width: 100%;
+}
+
+ul {
+    list-style-position: inside;
+}

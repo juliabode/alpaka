@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+
+// Vendorize CSS Properties - eg.: vendorize(border-box, 10px);
+@mixin vendorize($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+/* CSS Transition
+    Usage: @include transition(width,0.3s,ease-out);
+ */
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
+    Usage: @include font-size(1, large);
+*/
+
+@mixin font-size($sizeValue: 1.6, $lineHeight: $sizeValue * 1.5) {
+    $remValue: $sizeValue;
+    $pxValue: ($sizeValue * 10);
+    font-size: ($pxValue) + px;
+    line-height: ($lineHeight * 10) + px;
+}
+
+@mixin linear-gradient($fromColor, $toColor, $fallback:$toColor) {
+    background-color: $fallback; /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+    background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+    background-image:         linear-gradient(to bottom, $fromColor, $toColor);
+}

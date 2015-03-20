@@ -1,121 +1,35 @@
 <?php
-        // Translations can be filed in the /languages/ directory
-        load_theme_textdomain( 'html5reset', TEMPLATEPATH . '/languages' );
+/**
+ * Roots includes
+ *
+ * The $roots_includes array determines the code library included in your theme.
+ * Add or remove files to the array as needed. Supports child theme overrides.
+ *
+ * Please note that missing files will produce a fatal error.
+ *
+ * @link https://github.com/roots/roots/pull/1042
+ */
+$roots_includes = array(
+  'lib/utils.php',           // Utility functions
+  'lib/init.php',            // Initial theme setup and constants
+  'lib/wrapper.php',         // Theme wrapper class
+  'lib/sidebar.php',         // Sidebar class
+  'lib/config.php',          // Configuration
+  //'lib/activation.php',      // Theme activation
+  'lib/titles.php',          // Page titles
+  'lib/nav.php',             // Custom nav modifications
+  'lib/gallery.php',         // Custom [gallery] modifications
+  'lib/comments.php',        // Custom comments modifications
+  'lib/scripts.php',         // Scripts and stylesheets
+  'lib/extras.php',          // Custom functions
+  'lib/custom.php',          // Custom stuff
+);
 
-        $locale = get_locale();
-        $locale_file = TEMPLATEPATH . "/languages/$locale.php";
-        if ( is_readable($locale_file) )
-            require_once($locale_file);
-
-  // Add RSS links to <head> section
-  automatic_feed_links();
-
-  // Load jQuery
-  if ( !function_exists(core_mods) ) {
-    function core_mods() {
-      if ( !is_admin() ) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', get_template_directory_uri() . "/_/js/jquery-1.7.2.min.js", false);
-        wp_enqueue_script('jquery');
-      }
-    }
-    core_mods();
+foreach ($roots_includes as $file) {
+  if (!$filepath = locate_template($file)) {
+    trigger_error(sprintf(__('Error locating %s for inclusion', 'roots'), $file), E_USER_ERROR);
   }
 
-  // Clean up the <head>
-  function removeHeadLinks() {
-      remove_action('wp_head', 'rsd_link');
-      remove_action('wp_head', 'wlwmanifest_link');
-    }
-    add_action('init', 'removeHeadLinks');
-    remove_action('wp_head', 'wp_generator');
-
-    if (function_exists('register_sidebar')) {
-      register_sidebar(array(
-        'name' => __('Sidebar Widgets','html5reset' ),
-        'id'   => 'sidebar-widgets',
-        'description'   => __( 'These are widgets for the sidebar.','html5reset' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2>',
-        'after_title'   => '</h2>'
-      ));
-    }
-
-    add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
-
-register_nav_menu('main_menu', 'The Alpaka main menu');
-register_nav_menu('footer_menu', 'The Alpaka footer menu');
-
-function getImageForThumb($num) {
-  global $more;
-  $more = 1;
-  $content = get_the_content();
-  $count = substr_count($content, '<img');
-  $start = 0;
-  if ($count > 0) {
-    for($i=1;$i<=$count;$i++) {
-      $imgBeg = strpos($content, '<img', $start);
-      $post = substr($content, $imgBeg);
-      $imgEnd = strpos($post, '>');
-      $postOutput = substr($post, 0, $imgEnd+1);
-      $image[$i] = $postOutput;
-      $start=$imgEnd+1;
-
-      $cleanF = strpos($image[$num],'src="')+5;
-      $cleanB = strpos($image[$num],'"',$cleanF)-$cleanF;
-      $imgThumb = urlencode(substr($image[$num],$cleanF,$cleanB));
-    }
-  } else {
-    $image[1] = '<img';
-    $imgThumb = get_bloginfo('template_url') . '/images/default_thumb.jpg';
-  }
-  if(stristr($image[$num],'<img')) { return $imgThumb; }
-  $more = 0;
+  require_once $filepath;
 }
-
-function custom_excerpt_length( $length ) {
-  return 45;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 240, 240 );
-
-function new_excerpt_more($more) {
-       global $post;
-  return ' <a href="'. get_permalink($post->ID) . '">&hellip;</a>';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
-
-add_action('after_setup_theme', 'my_theme_setup');
-function my_theme_setup(){
-    load_theme_textdomain('alpaka', get_template_directory() . '/languages');
-}
-
-
-// THIS INCLUDES THE THUMBNAIL IN OUR RSS FEED
-add_filter( 'the_excerpt_rss', 'alpaka_insertThumbnailRSS' );
-add_filter( 'the_content_feed', 'alpaka_insertThumbnailRSS' );
-function alpaka_insertThumbnailRSS( $content ) {
-
-  global $post; $posts;
-
-  if ( has_post_thumbnail( $post->ID ) )
-    $content = '' . get_the_post_thumbnail( $post->ID ) . '' . $content;
-  else
-    $first_img = '';
-    ob_start();
-    ob_end_clean();
-    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-    $first_img = $matches[1][0];
-
-    if(!empty($first_img)){
-      $content = '<div>' . $first_img . '</div>' . $content;
-    }
-
-  return $content;
-}
-
-
-?>
+unset($file, $filepath);

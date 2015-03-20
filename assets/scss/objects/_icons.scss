@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot');
+    src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf') format('truetype'),
+        url('../fonts/icomoon.woff') format('woff'),
+        url('../fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home > a:after {
+    font-family: 'icomoon';
+    content: "\e600";
+    display: none;
+
+    @media all and (min-width: $bp-med) {
+        line-height: 1px;
+        display: block;
+        text-indent: 0;
+        margin-top: -20px;
+        text-align: right;
+    }
+}
+.icon-pencil:before { content: "\e601"; }
+.icon-earth:before  { content: "\e602"; }
+.icon-fire:before   { content: "\e603"; }
+.icon-stats:before  { content: "\e604"; }
+.icon-close:before  { content: "\e605"; }

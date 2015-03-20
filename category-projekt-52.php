@@ -1,63 +1,38 @@
-<?php get_header(); ?>
+<div class="row">
+    <div class="large-8 medium-8 small-12 left">
 
-  <div class="article-wrap">
-    <div class="left articles">
+        <?php $query_args = array(
+                'cat'            => $cat,
+                'posts_per_page' => -1,
+                'post__not_in'  => array(19, 676, 744),
+              );
+              query_posts($query_args);
+        ?>
 
-    <?php $query_args = array(
-            'cat'            => 4,
-            'posts_per_page' => -1,
-            'post__not_in'  => array(19, 676, 744),
-          );
-          query_posts($query_args); ?>
+        <?php if (!have_posts()) : ?>
+          <div class="alert alert-warning">
+            <?php _e('Sorry, no results were found.', 'roots'); ?>
+          </div>
+          <?php get_search_form(); ?>
+        <?php endif; ?>
 
-    <?php if (have_posts()) : ?>
-
-      <div id="category-project-52-wrapper" class="left">        
-        <div id="category-project-52-inner" class="left">
-          <h2><?php single_cat_title(); ?></h2>
-          <div class="description"><?php echo category_description(); ?></div>
-
-          <ul>
-
+        <ul class="small-block-grid-2 medium-block-grid-4">
             <?php while (have_posts()) : the_post(); ?>
-            <?php $title = get_the_title(); preg_match('/(W.*)/', $title, $title_new); ?>
-
-            <li class="left">
-              <div class="inner-wrapper">
-                <a href="<?php the_permalink() ?>">
-
-                <?php if ( has_post_thumbnail() ) {
-                        $thumb = get_the_post_thumbnail();
-                        $search = array('/src="/', '/.png"/', '/="240"/');
-                        $replace = array('src="http://alpaka.me/wp-content/themes/alpaka/timthumb.php?src=', '.png&w=125&h=125&zc=1"', '="125"');
-                        $thumb = preg_replace($search, $replace, $thumb);
-                        //echo '<div class="' . $thumb . '"></div>';
-                        echo $thumb;
-                      } ?>
-
-                </a>
-                <h3><a href="<?php the_permalink() ?>"><?php echo $title_new[1]; ?></a></h3>
-              </div>
-
-            </li>
-
-          <?php endwhile; ?>
-
+              <?php get_template_part('templates/content', 'single-projekt-52'); ?>
+            <?php endwhile; ?>
         </ul>
-      </div>
+
+        <?php if ($wp_query->max_num_pages > 1) : ?>
+          <nav class="post-nav">
+            <ul class="pager">
+              <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
+              <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
+            </ul>
+          </nav>
+        <?php endif; ?>
     </div>
 
-  <?php else : ?>
-
-    <h2>Nothing found</h2>
-
-  <?php endif; ?>
-  </div>
-  <div class="right">
-
-    <?php get_sidebar(); ?>
-
-  </div>
-  </div>
-
-<?php get_footer(); ?>
+    <aside class="sidebar large-4 medium-4 small-12 column white-bg" role="complementary">
+      <?php dynamic_sidebar('sidebar-primary'); ?>
+    </aside><!-- /.sidebar -->
+</div>

@@ -1,0 +1,25 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: normal;
+  color: $brand-primary;
+}
+
+h1 {
+  font-size: $font-size-large-2;
+}
+
+h2 {
+  font-size: $font-size-large-2;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.page-header {
+    padding-bottom: $pad-and-half;
+    margin: $space-triple 0 $space-double;
+    border-bottom: 1px solid $red;
+}

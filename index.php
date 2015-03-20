@@ -1,81 +1,26 @@
-<?php get_header(); ?>
+<div class="large-8 medium-8 small-12 column">
 
-  <div class="article-wrap">
-    <div class="left articles">
-      <?php update_option('posts_per_page', 10);?>
-
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-    <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-          <div class="inner-wrapper">
-            <a href="<?php the_permalink() ?>">
-
-              <?php if ( has_post_thumbnail() ) {
-                      the_post_thumbnail();
-                    } else { ?>
-
-                      <?php
-                        $_origin_id = get_post_meta($post->ID, 'origin_id', TRUE);
-                        $containsThumb = preg_match('/timthumb/', getImageForThumb('1'));
-
-                        if ((!empty($_origin_id)) || (!empty($containsThumb)))
-                        {
-                          $_thumbString = '<img src="%s" alt="%s">';
-                          $_thumbUrl = urldecode(getImageForThumb('1'));
-                          $thumb = str_replace('w=636', 'w=240', $_thumbUrl);
-                          $thumb = str_replace('w=313', 'w=240', $thumb);
-                          $thumb = str_replace('h=315', 'h=240', $thumb);
-
-                          $_thumb = sprintf($_thumbString, $thumb, get_the_title($post->ID));
-
-                          unset($_thumbString, $_thumbUrl, $thumb);
-                        }
-                        else
-                        {
-                           $_thumb = sprintf('<img src="%s/timthumb.php?src=%s&amp;w=240&amp;h=240&amp;zc=1" alt="%s">',
-                                  get_bloginfo('template_directory'),
-                                  getImageForThumb('1'),
-                                  get_the_title($_post_id)
-                                );
-                        }
-
-                        ?>
-                <?php print($_thumb); ?>
-              <?php } ?>
-            </a>
-
-      <div class="entry right">
-        <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-
-        <?php include (TEMPLATEPATH . '/_/inc/meta.php' ); ?>
-       <?php
-          if($post->post_excerpt == ''){
-            the_excerpt();
-          } else {
-            echo get_the_excerpt() . ' <a href="' . get_permalink() . '">&hellip;</a>';
-          }
-        ?>
+    <?php if (!have_posts()) : ?>
+      <div class="alert alert-warning">
+        <?php _e('Sorry, no results were found.', 'roots'); ?>
       </div>
+      <?php get_search_form(); ?>
+    <?php endif; ?>
 
-      </div>
+    <?php while (have_posts()) : the_post(); ?>
+      <?php get_template_part('templates/content', get_post_format()); ?>
+    <?php endwhile; ?>
 
-    </article>
+    <?php if ($wp_query->max_num_pages > 1) : ?>
+      <nav class="post-nav">
+        <ul class="pager">
+          <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
+          <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
+        </ul>
+      </nav>
+    <?php endif; ?>
+</div>
 
-  <?php endwhile; ?>
-
-  <?php include (TEMPLATEPATH . '/_/inc/nav.php' ); ?>
-
-  <?php else : ?>
-
-    <h2>Not Found</h2>
-
-  <?php endif; ?>
-  </div>
-  <div class="right">
-
-    <?php get_sidebar(); ?>
-
-  </div>
-  </div>
-
-<?php get_footer(); ?>
+<aside class="sidebar large-4 medium-4 small-12 column" role="complementary">
+  <?php dynamic_sidebar('sidebar-primary'); ?>
+</aside><!-- /.sidebar -->

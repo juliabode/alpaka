@@ -1,0 +1,29 @@
+.member-page-3__image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 120px 0;
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    @include transition(background-color, 0.5s, ease);
+
+    &:hover {
+        background-color: $red;
+    }
+
+    img {
+        padding: 0;
+        @include transition(all, 0.5s, ease);
+        @include vendorize(transform, scale(1.06));
+
+        &:hover {
+            opacity: 0.5;
+            @include vendorize(transform, scale(1));
+        }
+    }
+
+}
+
+.member-page-3__infos {
+    border-top: 1px solid $gray-light;
+    padding-top: 3px;
+}

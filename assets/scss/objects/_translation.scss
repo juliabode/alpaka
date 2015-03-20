@@ -1,0 +1,15 @@
+.qtrans_language_chooser {
+    list-style: none;
+    float: right;
+
+    li {
+        float: left;
+        padding: 12px 0 0;
+        font-size: 14px;
+        margin-left: 8px;
+
+        a {
+            color: $gray-dark;
+        }
+    }
+}

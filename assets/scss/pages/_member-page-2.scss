@@ -1,0 +1,39 @@
+.member-page-2__wrapper {
+    display: inline-block;
+
+    img {
+        display: block;
+    }
+
+    .member-page-2__image-wrapper {
+        z-index: 1;
+        @include transition(transform, 0.4s, linear);
+    }
+
+    .member-page-2__infos, h3 {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    h3 {
+        background: rgba(165, 7, 21, 0.8);
+        color: $white;
+        padding: 5px 10px;
+    }
+
+    div.member-page-2__infos {
+        top: 30%;
+        z-index: 0;
+        border-top: 0;
+        padding: 0 10px;
+
+        &:before {
+            content: none;
+        }
+    }
+
+    &:hover .member-page-2__image-wrapper {
+        @include vendorize(transform, translateY(-70%));
+    }
+}

@@ -1,0 +1,128 @@
+.social-media-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.social-media-links {
+    display: none;
+
+    @media all and (min-width: $bp-med) {
+        display: block;
+        text-align: center;
+        list-style: none;
+        padding: 10px 0 5px;
+        overflow: hidden;
+        float: right;
+
+        li {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-left: 10px;
+            overflow: hidden;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 200%;
+                position: relative;
+                @include transition(all, 0.2s, ease-in);
+
+                &:before,
+                &:after {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                &:before {
+                    border: 1px solid $gray;
+                    color: $gray-dark;
+                }
+
+                &:after {
+                    position: absolute;
+                    height: 50%;
+                    left: 0;
+                    bottom: 0;
+                    color: $white;
+                    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+                }
+
+                &.fa-facebook:after {
+                    content: "\f09a";
+                    background-color: #3B5998;
+                }
+
+                &.fa-twitter:after {
+                    content: "\f099";
+                    background-color: #00aced;
+                }
+
+                &.fa-google:before,
+                &.fa-google:after {
+                    content: "\f0d5";
+                }
+
+                &.fa-google:after {
+                    background-color: #dd4b39;
+                }
+
+                &.fa-mail:before,
+                &.fa-mail:after {
+                    content: "\f003";
+                }
+
+                &.fa-mail:after {
+                    background-color: #f7b42c;
+                }
+
+                &.fa-linkedin:after {
+                    content: "\f0e1";
+                    background-color: #517fa4;
+                }
+
+                &.fa-xing:after {
+                    content: "\f168";
+                    background-color: #006563;
+                }
+
+                &.fa-skype:after {
+                    content: "\f17e";
+                    background-color: #00aff0;
+                }
+
+                &.fa-youtube:after {
+                    content: "\f167";
+                    background-color: #ff3333;
+                }
+
+                &.fa-vimeo:before,
+                &.fa-vimeo:after {
+                    content: "\f194";
+                }
+
+                &.fa-vimeo:after {
+                    background-color: #aad450;
+                }
+
+                &.fa-flickr:after {
+                    content: "\f16e";
+                    background-color: #ff0084;
+                }
+
+                &.fa-rss:after {
+                    content: "\f09e";
+                    background-color: #ff6600;
+                }
+            }
+        }
+    }
+}
+
+.social-media-links li:hover a {
+    margin-top: -20px;
+    text-decoration: none;
+}

@@ -1,0 +1,171 @@
+/*------------------------------------*\
+    $GLOBAL CLASSES
+\*------------------------------------*/
+
+/* Clearfix */
+.cf {
+    *zoom: 1;
+}
+.cf:before, .cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/* Completely remove from the flow and screen readers. */
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Completely remove from the flow but leave available to screen readers. */
+.is-vishidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Floats */
+.right {
+    float: right;
+    padding: 0 0 $pad $pad;
+}
+
+.right-search {
+    float: right;
+    padding: 0 0 $pad 0;
+}
+
+.left {
+    float: left;
+    padding: 0 $pad $pad 0;
+}
+
+/* Text-Align */
+.alignright {
+    text-align: right;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.alignleft {
+    text-align: left;
+}
+
+/* Display Classes */
+.hide-small {
+    @media all and (max-width: $bp-med) {
+        display: none;
+    }
+}
+
+.hide-med {
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        display: none;
+    }
+}
+
+.hide-large {
+    @media all and (min-width: $bp-large) {
+        display: none;
+    }
+}
+
+//
+.valid {
+    color: $valid;
+}
+
+.error {
+    color: $error;
+}
+
+.info {
+
+}
+
+
+/* Text */
+
+.cursive {
+    font-style: italic;
+}
+
+
+/* Background Colours */
+.bg--white {
+    background-color: $white;
+}
+
+.bg--black {
+    background-color: $black;
+}
+
+.bg--red {
+    background-color: $red;
+}
+
+
+div.pos--init {
+    position: initial;
+}
+
+.pos--rel {
+    position: relative;
+}
+
+.pos--abs {
+    position: absolute;
+}
+
+/* margins */
+
+.m-t-xxl {
+    margin-top: 30px;
+}
+
+.m-t-xxxl {
+    margin-top: 40px;
+}
+
+.m-b-xxl {
+    margin-bottom: 30px;
+}
+
+.m-b-xxxl {
+    margin-bottom: 40px;
+}
+
+/* Special Grey Box */
+
+.special-box {
+    background-color: $gray-lighter;
+    border: 1px solid $gray-light;
+
+    &:after, &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        background-color: $white;
+        height: 1px;
+        width: 100%;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+}
