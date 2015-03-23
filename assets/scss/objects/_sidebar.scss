@@ -1,3 +1,35 @@
 .widget {
     margin-bottom: 25px;
 }
+
+.widget_categories {
+
+    ul {
+        text-align: center;
+        list-style: none;
+    }
+
+    li {
+        text-decoration: none;
+        border: 1px solid #D5D2D5;
+        padding: 6px 12px;
+        display: inline-block;
+        @include transition(all, .3s, ease);
+        margin: 10px 4px 0;
+        font-size: 14px;
+
+        a {
+            color: #43837B;
+        }
+
+        &:hover {
+            background-color: #43837B;
+            @include transition(all, .3s, ease);
+
+            a {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    }
+}

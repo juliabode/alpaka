@@ -14,10 +14,9 @@
 //@import "base/links";
 @import "base/headings";
 //@import "base/text";
-//@import "base/form";
+@import "base/form";
 //@import "base/lists";
 //@import "base/media";
-//@import "base/forms";
 //@import "base/tables";
 
 //@import "base/figure";
@@ -59,7 +58,7 @@
 //@import "objects/offcanvas";
 //@import "objects/slider";
 //@import "objects/service-tiles.scss";
-//@import "objects/social-media.scss";
+@import "objects/social-media.scss";
 //@import "objects/accordion-component.scss";
 
 

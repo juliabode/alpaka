@@ -23,6 +23,7 @@ $roots_includes = array(
   'lib/scripts.php',         // Scripts and stylesheets
   'lib/extras.php',          // Custom functions
   'lib/custom.php',          // Custom stuff
+  'lib/adminpage.php',          // Custom stuff
 );
 
 foreach ($roots_includes as $file) {

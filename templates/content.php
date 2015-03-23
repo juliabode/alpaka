@@ -9,5 +9,6 @@
         <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div>
+        <?php echo do_shortcode('[ssba]'); ?>
     </div>
 </article>
