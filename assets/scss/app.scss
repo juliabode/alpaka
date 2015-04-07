@@ -38,7 +38,7 @@
 //@import "objects/translation";
 //@import "objects/main";
 @import "objects/sidebar";
-//@import "objects/footer";
+@import "objects/footer";
 
 //@import "objects/leftnavi";
 
@@ -59,6 +59,7 @@
 //@import "objects/slider";
 //@import "objects/service-tiles.scss";
 @import "objects/social-media.scss";
+@import "objects/related-posts.scss";
 //@import "objects/accordion-component.scss";
 
 
@@ -66,10 +67,6 @@
     $PAGE Templates
 \*------------------------------------*/
 
-//@import "pages/member-page-1.scss";
-//@import "pages/member-page-2.scss";
-//@import "pages/member-page-3.scss";
-//@import "pages/reference-page.scss";
-//@import "pages/partner-page.scss";
+@import "pages/category-project-52.scss";
 
 @import "objects/blog.scss";

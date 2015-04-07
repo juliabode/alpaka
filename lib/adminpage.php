@@ -7,10 +7,14 @@ function merge_option_default_variables() {
     'alpaka_facebook_link'          => '',
     'alpaka_twitter_link'           => '',
     'alpaka_google_link'            => '',
+    'alpaka_pinterest_link'         => '',
+    'alpaka_instagram_link'         => '',
+    'alpaka_eyeem_link'             => '',
+    'alpaka_tumblr_link'             => '',
     'alpaka_mail_link'              => '',
     'alpaka_flickr_link'            => '',
     'alpaka_rss_link'               => '',
-    'imprint_link_setting'        => '',
+    'imprint_link_setting'          => '',
   );
 
   return wp_parse_args( $options, $defaults );
@@ -80,6 +84,10 @@ function register_and_build_fields() {
   add_settings_field('alpaka_facebook_link', 'Facebook:', 'alpaka_facebook_link', __FILE__, 'social_media_section');
   add_settings_field('alpaka_twitter_link', 'Twitter:', 'alpaka_twitter_link', __FILE__, 'social_media_section');
   add_settings_field('alpaka_google_link', 'Google+:', 'alpaka_google_link', __FILE__, 'social_media_section');
+  add_settings_field('alpaka_pinterest_link', 'Pinterest:', 'alpaka_pinterest_link', __FILE__, 'social_media_section');
+  add_settings_field('alpaka_instagram_link', 'Instagram:', 'alpaka_instagram_link', __FILE__, 'social_media_section');
+  add_settings_field('alpaka_eyeem_link', 'EyeEm:', 'alpaka_eyeem_link', __FILE__, 'social_media_section');
+  add_settings_field('alpaka_tumblr_link', 'Tumblr:', 'alpaka_tumblr_link', __FILE__, 'social_media_section');
   add_settings_field('alpaka_mail_link', 'Email:', 'alpaka_mail_link', __FILE__, 'social_media_section');
   add_settings_field('alpaka_flickr_link', 'Flickr:', 'alpaka_flickr_link', __FILE__, 'social_media_section');
   add_settings_field('alpaka_rss_link', 'RSS:', 'alpaka_rss_link', __FILE__, 'social_media_section');
@@ -116,6 +124,26 @@ function alpaka_mail_link() {
 function alpaka_google_link() {
   $options = merge_option_default_variables();
   echo "<input name='plugin_options[alpaka_google_link]' type='text' value='{$options['alpaka_google_link']}' class='regular-text'/>";
+}
+
+function alpaka_pinterest_link() {
+  $options = merge_option_default_variables();
+  echo "<input name='plugin_options[alpaka_pinterest_link]' type='text' value='{$options['alpaka_pinterest_link']}' class='regular-text'/>";
+}
+
+function alpaka_instagram_link() {
+  $options = merge_option_default_variables();
+  echo "<input name='plugin_options[alpaka_instagram_link]' type='text' value='{$options['alpaka_instagram_link']}' class='regular-text'/>";
+}
+
+function alpaka_eyeem_link() {
+  $options = merge_option_default_variables();
+  echo "<input name='plugin_options[alpaka_eyeem_link]' type='text' value='{$options['alpaka_eyeem_link']}' class='regular-text'/>";
+}
+
+function alpaka_tumblr_link() {
+  $options = merge_option_default_variables();
+  echo "<input name='plugin_options[alpaka_tumblr_link]' type='text' value='{$options['alpaka_tumblr_link']}' class='regular-text'/>";
 }
 
 function alpaka_flickr_link() {

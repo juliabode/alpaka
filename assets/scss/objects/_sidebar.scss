@@ -33,3 +33,27 @@
         }
     }
 }
+
+.widget_archive select {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #D5D2D5;
+    padding-left: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #43837B;
+    background: none;
+}
+
+.widget_text {
+    text-align: center;
+
+    @media all and (min-width: $bp-med) {
+        text-align: left;
+
+        img {
+            width: 100%;
+        }
+    }
+}

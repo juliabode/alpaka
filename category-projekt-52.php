@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="large-8 medium-8 small-12 left">
+    <div class="large-8 medium-8 small-12 column">
 
         <?php $query_args = array(
                 'cat'            => $cat,
@@ -16,7 +16,7 @@
           <?php get_search_form(); ?>
         <?php endif; ?>
 
-        <ul class="small-block-grid-2 medium-block-grid-4">
+        <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-2 project-52-page">
             <?php while (have_posts()) : the_post(); ?>
               <?php get_template_part('templates/content', 'single-projekt-52'); ?>
             <?php endwhile; ?>
@@ -32,7 +32,7 @@
         <?php endif; ?>
     </div>
 
-    <aside class="sidebar large-4 medium-4 small-12 column white-bg" role="complementary">
+    <aside class="sidebar large-4 medium-4 small-12 column" role="complementary">
       <?php dynamic_sidebar('sidebar-primary'); ?>
     </aside><!-- /.sidebar -->
 </div>

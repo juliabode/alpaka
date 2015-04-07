@@ -1,5 +1,5 @@
 .row {
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
     max-width: $max-width;
     *zoom: 1;
@@ -7,10 +7,6 @@
     &:before, &:after {
         content: " ";
         display: table;
-    }
-
-    @media (min-width: $bp-large-2) {
-        width: 100%;
     }
 }
 
@@ -53,12 +49,16 @@
 .column,
 .columns {
     position: relative;
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: 0.375em;
+    padding-right: 0.375em;
     width: 100%;
     float: left;
 
-    @media (min-width: $bp-large) {
+    @media (min-width: $bp-med) {
+        padding: 0 0.9375em;
+    }
+
+    @media (min-width: $bp-large-2) {
         padding: 0 2.5em;
     }
 }

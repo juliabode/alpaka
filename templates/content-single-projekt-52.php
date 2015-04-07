@@ -11,10 +11,10 @@
     if ( $attachement->ID != get_post_thumbnail_id() ) {
         $i++ ?>
         <li>
-            <img src="<?php echo $attachement->guid; ?>">
-            <!--<div class="post-content">
-                <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo $title_new[1]; ?></a></h2>
-            </div>-->
+            <a href="<?php the_permalink(); ?>">
+                <img src="<?php echo $attachement->guid; ?>">
+                <h2 class="entry-title"><span><?php echo $title_new[1]; ?></span></h2>
+            </a>
         </li>
         <?php
     }

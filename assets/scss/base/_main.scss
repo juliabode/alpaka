@@ -6,10 +6,6 @@ body {
     margin: 0;
     background: url("../img/bg.png");
     overflow-x: hidden;
-
-    @media all and (min-width: $bp-med) {
-        padding-top: $space-double;
-    }
 }
 
 .wrap {

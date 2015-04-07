@@ -30,7 +30,7 @@ function my_login_logo_url() {
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 function my_login_logo_url_title() {
-    return 'Anisah';
+    return 'Alpaka Me';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
@@ -96,7 +96,7 @@ class alpaka_widget extends WP_Widget {
 
         <?php 
             $options      = get_option('plugin_options');
-            $social_media = array('facebook', 'twitter', 'google', 'mail', 'flickr', 'rss');
+            $social_media = array('facebook', 'twitter', 'google', 'pinterest', 'instagram', 'eyeem', 'tumblr', 'mail', 'flickr', 'rss');
         ?>
 
         <div>
@@ -145,3 +145,23 @@ function alpaka_load_widget() {
     register_widget( 'alpaka_widget' );
 }
 add_action( 'widgets_init', 'alpaka_load_widget' );
+
+// Get out of my page!
+//wp_dequeue_style('ssba-styles');
+//wp_dequeue_script('jquery');
+
+function meta_tags_fb() {
+  global $post;
+  $post_description = get_the_excerpt();
+  $post_featured_image = '';//catch_that_image();
+
+  if ( (is_single()) AND ($post_featured_image) AND ($post_description) ) { ?>
+    <meta property="og:url" content="<?php echo get_permalink(); ?>" />
+    <meta property="og:title" content="<?php echo $post->post_title; ?>" />
+    <meta property="og:description" content="<?php echo $post_description; ?>" />
+    <meta property="og:image" content="<?php echo $post_featured_image; ?>" />
+  <?php }
+}
+add_action('wp_head', 'meta_tags_fb');
+
+set_post_thumbnail_size( 250, 200, true );
