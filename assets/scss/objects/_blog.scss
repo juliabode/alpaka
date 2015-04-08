@@ -85,7 +85,7 @@ article.post {
         line-height: 28px;
     }
 
-    ul, ol {
+    ul:not([class*="block-grid-"]), ol {
         list-style-type: circle;
         margin: 1em 0;
 
