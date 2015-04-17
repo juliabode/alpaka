@@ -11,7 +11,7 @@
         <div class="entry-content">
             <?php the_content(); ?>
         </div>
-        <?php get_template_part('templates/social-box'); ?>
+        <?php include(locate_template('templates/social-box.php')); ?>
     </div>
     <footer>
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>

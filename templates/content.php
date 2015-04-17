@@ -10,6 +10,6 @@
             <?php the_excerpt(); ?>
         </div>
 
-        <?php get_template_part('templates/social-box'); ?>
+        <?php include(locate_template('templates/social-box.php')); ?>
     </div>
 </article>
