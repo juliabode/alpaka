@@ -153,9 +153,12 @@ add_action( 'widgets_init', 'alpaka_load_widget' );
 function meta_tags_fb() {
   global $post;
   $post_description = get_the_excerpt();
-  $post_featured_image = '';//catch_that_image();
+  preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($post_description), $tags);
+  $post_description = preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $post_description);
 
-  if ( (is_single()) AND ($post_featured_image) AND ($post_description) ) { ?>
+  $post_featured_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+  if ( (is_single()) AND ($post_featured_image) AND ($post_description) ) {?>
     <meta property="og:url" content="<?php echo get_permalink(); ?>" />
     <meta property="og:title" content="<?php echo $post->post_title; ?>" />
     <meta property="og:description" content="<?php echo $post_description; ?>" />
