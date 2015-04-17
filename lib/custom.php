@@ -150,7 +150,7 @@ add_action( 'widgets_init', 'alpaka_load_widget' );
 //wp_dequeue_style('ssba-styles');
 //wp_dequeue_script('jquery');
 
-function meta_tags_fb() {
+function meta_tags_sm() {
   global $post;
   $post_description = get_the_excerpt();
   preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($post_description), $tags);
@@ -163,8 +163,14 @@ function meta_tags_fb() {
     <meta property="og:title" content="<?php echo $post->post_title; ?>" />
     <meta property="og:description" content="<?php echo $post_description; ?>" />
     <meta property="og:image" content="<?php echo $post_featured_image; ?>" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LulesSaurus">
+    <meta name="twitter:title" content="<?php echo $post->post_title; ?>">
+    <meta name="twitter:description" content="<?php echo $post_description; ?>">
+    <meta name="twitter:image" content="<?php echo $post_featured_image; ?>">
   <?php }
 }
-add_action('wp_head', 'meta_tags_fb');
+add_action('wp_head', 'meta_tags_sm');
 
 set_post_thumbnail_size( 250, 200, true );
