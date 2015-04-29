@@ -85,6 +85,10 @@ article.post {
         line-height: 28px;
     }
 
+    img[class*="wp-image"] {
+        margin: 1rem 0;
+    }
+
     ul:not([class*="block-grid-"]), ol {
         list-style-type: circle;
         margin: 1em 0;
