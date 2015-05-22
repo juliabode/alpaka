@@ -174,3 +174,14 @@ function meta_tags_sm() {
 add_action('wp_head', 'meta_tags_sm');
 
 set_post_thumbnail_size( 250, 200, true );
+
+function featuredtoRSS($content) {
+    global $post;
+    if ( has_post_thumbnail( $post->ID ) ){
+        $content = '<div>' . get_the_post_thumbnail( $post->ID, 'full', array( ) ) . '</div>' . $content;
+    }
+    return $content;
+}
+
+add_filter('the_excerpt_rss', 'featuredtoRSS');
+add_filter('the_content_feed', 'featuredtoRSS');
