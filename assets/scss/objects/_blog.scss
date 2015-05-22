@@ -1,4 +1,5 @@
-article.post {
+article.post,
+.about-me-page {
 
     header {
         height: 250px;
@@ -49,10 +50,23 @@ article.post {
     }
 }
 
+.about-me-page header {
+    height: 150px;
+
+    @media all and (min-width: $bp-small-2) {
+        height: 250px;
+    }
+
+    @media all and (min-width: $bp-med) {
+        height: 400px;
+    }
+}
+
 .post-content,
 #comments,
 #respond,
-.related-posts {
+.related-posts,
+.page-content {
     background: white;
     padding: 25px 5px;
     box-shadow: 0 5px 4px -4px rgba(190,190,190,.4);
@@ -122,6 +136,7 @@ article.post {
 
 article.post h2,
 article.post h1,
+.page-header h1,
 h3 {
     text-align: center;
     overflow: hidden;
