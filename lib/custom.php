@@ -147,8 +147,13 @@ function alpaka_load_widget() {
 add_action( 'widgets_init', 'alpaka_load_widget' );
 
 // Get out of my page!
-//wp_dequeue_style('ssba-styles');
 //wp_dequeue_script('jquery');
+
+add_action('wp_footer','lm_dequeue_footer_styles');
+function lm_dequeue_footer_styles()
+{
+  wp_dequeue_style('yarppRelatedCss');
+}
 
 function meta_tags_sm() {
   global $post;
