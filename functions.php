@@ -24,6 +24,7 @@ $roots_includes = array(
   'lib/extras.php',          // Custom functions
   'lib/custom.php',          // Custom stuff
   'lib/adminpage.php',          // Custom stuff
+  'lib/posts.php',          // Custom posts
 );
 
 foreach ($roots_includes as $file) {
