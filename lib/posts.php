@@ -42,3 +42,50 @@ function create_weekly_post_type() {
     );
 }
 add_action( 'init', 'create_weekly_post_type' );
+
+function weeklies_add_meta_box() {
+
+    add_meta_box(
+        'weeklies_has_post',
+        __( 'Post Connection', 'roots' ),
+        'weeklies_meta_box_callback',
+        'weeklies',
+        'side'
+    );
+}
+add_action( 'add_meta_boxes_weeklies', 'weeklies_add_meta_box' );
+
+function weeklies_meta_box_callback( $post ) {
+
+    // Add a nonce field so we can check for it later.
+    wp_nonce_field( 'weeklies_save_meta_box_data', 'weeklies_meta_box_nonce' );
+
+    /*
+     * Use get_post_meta() to retrieve an existing value
+     * from the database and use the value for the form.
+     */
+
+    $value = get_post_meta( $post->ID, 'weeklies_checkbox', true );
+    $field_id_checked =  ($value == "yes") ? 'checked="checked"' : '';
+
+    echo '<label for="weeklies_checkbox">';
+    echo '<input type="checkbox" id="weeklies_checkbox" name="weeklies_checkbox" value="yes" ' . $field_id_checked . '/>';
+    _e( 'Has connected Post', 'roots' );
+    echo '</label> ';
+}
+
+function weeklies_save_meta_box_data( $post_id ) {
+    // verify if this is an auto save routine.
+    // If it is our form has not been submitted, so we dont want to do anything
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return;
+
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if ( !wp_verify_nonce( $_POST['weeklies_meta_box_nonce'], 'weeklies_save_meta_box_data' ) )
+        return;
+
+    update_post_meta( $post_id, 'weeklies_checkbox', $_POST['weeklies_checkbox'] );
+}
+
+add_action('save_post', 'weeklies_save_meta_box_data');
