@@ -14,10 +14,10 @@
         $taxonomies = get_the_terms($weeklyID, 'type'); ?>
 
         <a href="<?php echo $post[0]->guid; ?>">
-            <header class="<?php echo array_values($taxonomies)[0]->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
+            <header class="<?php echo array_shift(array_slice($taxonomies, 0, 1))->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
                 <span class="categories">
                     <?php
-                        echo array_values($taxonomies)[0]->name;
+                        echo array_shift(array_slice($taxonomies, 0, 1))->name;
                     ?>
                 </span>
             </header>
