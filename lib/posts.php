@@ -89,3 +89,23 @@ function weeklies_save_meta_box_data( $post_id ) {
 }
 
 add_action('save_post', 'weeklies_save_meta_box_data');
+
+
+/**
+ * Register custom post type for projects
+ */
+function create_post_type() {
+    register_post_type( 'ame_project',
+        array(
+            'labels'        => array(
+                'name'          => __( 'Projects' ),
+                'singular_name' => __( 'Project' )
+            ),
+            'public'        => true,
+            'has_archive'   => false,
+            'rewrite'       => array( 'slug' => 'mach-es-fertig' ),
+            'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' )
+        )
+    );
+}
+add_action( 'init', 'create_post_type' );

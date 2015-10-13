@@ -1,6 +1,7 @@
 article.post,
 .single article.weeklies,
-.about-me-page {
+.about-me-page,
+.single article.ame_project  {
 
     header {
         height: 250px;
@@ -139,6 +140,7 @@ article.post h2,
 article.post h1,
 article.weeklies h1,
 .page-header h1,
+article.ame_project h1,
 h3 {
     text-align: center;
     overflow: hidden;
