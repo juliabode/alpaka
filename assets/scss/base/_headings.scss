@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: $font-secondary;
   font-weight: normal;
   color: $brand-primary;
@@ -16,4 +16,10 @@ h3 {
   font-size: 28px;
   margin: 0;
   margin-bottom: 10px;
+}
+
+h4 {
+    font-family: $font;
+    margin: 6px 0 3px;
+    font-weight: normal;
 }
