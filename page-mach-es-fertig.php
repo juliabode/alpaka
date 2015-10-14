@@ -37,12 +37,6 @@ function remove_width_attribute( $html ) {
                             <?php the_excerpt(); ?>
                         </span>
                     </a>
-
-                            <div class="finish-it__info">
-                                <span class="finish-it__desc">
-                                    
-                                </span>
-                            </div>
                 </li>
 
             <?php
