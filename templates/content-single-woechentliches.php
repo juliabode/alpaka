@@ -11,13 +11,14 @@
 
         $thumb_id = get_post_thumbnail_id($post[0]->ID);
         $thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
-        $taxonomies = get_the_terms($weeklyID, 'type'); ?>
+        $taxonomies = get_the_terms($weeklyID, 'type');
+        $taxonomy = array_shift(array_slice($taxonomies, 0, 1)) ?>
 
         <a href="<?php echo $post[0]->guid; ?>">
-            <header class="<?php echo array_shift(array_slice($taxonomies, 0, 1))->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
+            <header class="<?php echo $taxonomy->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
                 <span class="categories">
                     <?php
-                        echo array_shift(array_slice($taxonomies, 0, 1))->name;
+                        echo $taxonomy->name;
                     ?>
                 </span>
             </header>
@@ -35,13 +36,14 @@
 
         <?php   $thumb_id = get_post_thumbnail_id();
                 $thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
-                $taxonomies = get_the_terms(get_the_ID(), 'type'); ?>
+                $taxonomies = get_the_terms(get_the_ID(), 'type');
+                $taxonomy = array_shift(array_slice($taxonomies, 0, 1)) ?>
 
         <a href="<?php the_permalink(); ?>">
-            <header class="<?php echo array_values($taxonomies)[0]->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
+            <header class="<?php echo $taxonomy->slug; ?>" style="background-image:url(<?php echo $thumb_url[0]; ?>)">
                 <span class="categories">
                     <?php
-                        echo array_values($taxonomies)[0]->name;
+                        echo $taxonomy->name;
                     ?></span>
             </header>
         </a>

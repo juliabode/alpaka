@@ -8,6 +8,7 @@
         <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <div class="meta"><?php if (!is_singular('weeklies')) get_template_part('templates/entry-meta'); ?></div>
 
+        <h5><?php the_excerpt(); ?></h5>
         <div class="entry-content">
             <?php the_content(); ?>
         </div>
