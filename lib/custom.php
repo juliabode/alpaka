@@ -190,3 +190,11 @@ function featuredtoRSS($content) {
 
 add_filter('the_excerpt_rss', 'featuredtoRSS');
 add_filter('the_content_feed', 'featuredtoRSS');
+
+
+/* Create shortcode for advent calender */
+
+function adventcalender_func(){
+    return get_template_part('templates/adventcalender');
+}
+add_shortcode( 'adventcalender', 'adventcalender_func' );

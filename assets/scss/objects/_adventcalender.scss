@@ -1,0 +1,155 @@
+.adventcalender {
+    background: url("../img/xmas-bg.png");
+    margin-bottom: 60px;
+    border: 2px solid #0C6F0C;
+    border-radius: 5px;
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    h2 {
+        background: #930404;
+        text-align: center;
+        margin: 20px -22px 40px;
+        font-size: 2em;
+        color: #F5F5F5;
+        font-family: "Vollkorn";
+        padding-top: 6px;
+        box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+        position: relative;
+
+        &:before, &:after {
+            border-color: #5b0303 transparent transparent transparent;
+            position: absolute;
+            display: block;
+            border-style: solid;
+            bottom: -20px;
+            content: '';
+        }
+
+        &:before {
+            left: 0;
+            border-width: 20px 0 0 20px;
+        }
+
+        &:after {
+            right: 0;
+            border-width: 20px 20px 0 0;
+        }
+    }
+
+    ul {
+        padding: 0 15px 15px;
+        text-align: center;
+
+        @media all and (max-width: $bp-med) {
+            li {
+                padding-bottom: 0.5em;
+            }
+        }
+
+        .door {
+            border: 1px solid rgba(245,245,245,0.1);
+            background: #930404;
+            padding: 10px 0;
+            border-radius: 10px;
+            font-family: Vollkorn;
+            font-size: 36px;
+            color: #F5F5F5;
+            box-shadow: rgba(0,0,0,0.3) 0 1px 1px;
+
+            &.open {
+                background-size: cover;
+                border-color: #930404;
+            }
+        }
+    }
+}
+
+
+// Snowflakes Config
+$flakes: 150; // match flakes in mark up
+$snowColor: #ffffff;
+
+// Mixins
+@mixin keyframes($name) {
+    @-webkit-keyframes $name { @content; }
+    @-moz-keyframes $name { @content; }
+    @-o-keyframes $name { @content; }
+    @keyframes $name { @content; }
+}
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};      
+}
+
+@mixin transform($transforms) {
+       -moz-transform: $transforms;
+         -o-transform: $transforms;
+        -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+// Let it snow
+.snow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.flake {
+    position: absolute;
+    border-radius: 50%;
+    @include transform(translateY(0) rotateX(0) rotateY(0));
+    background:
+        linear-gradient(180deg,
+            rgba(255,255,255,0) 30%,
+            $snowColor 50%,
+            $snowColor 60%,
+            rgba(255,255,255,0) 60%),
+        linear-gradient(90deg,
+            rgba(255,255,255,0) 30%,
+            $snowColor 50%,
+            $snowColor 60%,
+            rgba(255,255,255,0) 60%),
+        linear-gradient(45deg,
+            rgba(255,255,255,0) 33%,
+            $snowColor 53%,
+            $snowColor 57%,
+            rgba(255,255,255,0) 65%),
+        linear-gradient(135deg,
+            rgba(255,255,255,0) 33%,
+            $snowColor 53%,
+            $snowColor 57%,
+            rgba(255,255,255,0) 65%);
+}
+
+@for $i from 1 through $flakes{
+    $flakeWidth: 5 + random(15); // Flake size
+    $flakeHeight: $flakeWidth;
+    $flakeVertical: -100 + random(700);
+    $flakeHorizontal: random(100);
+    $flakeBlur: 2 + random(2);
+    $flakeDelay: 15 + random(55); // Flake speed
+
+    .flake:nth-child(#{$i}){
+        width: $flakeWidth + px;
+        height: $flakeHeight + px;
+        top: $flakeVertical + px;
+        left: #{$flakeHorizontal + "%"};
+        opacity: (50 + random(50)) * 0.01;
+        filter: blur($flakeBlur + px );
+        @include animation(#{$flakeDelay + s} flakes linear infinite);
+    }
+}
+
+@keyframes flakes {
+    100%{
+        @include transform(translateY(1000px) rotateX(10 + random(40) + deg) rotateY(10 + random(40) + deg));
+        opacity: 0;
+    }
+}
