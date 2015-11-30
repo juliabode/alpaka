@@ -1,9 +1,10 @@
 <?php
     $i = 1;
     $custom_posts = get_posts( array(
-           'numberposts' => 1, // we want to retrieve all of the posts
+           'numberposts' => -1, // we want to retrieve all of the posts
            'post_type' => 'weeklies',
-           'type' => 'adventcalender'
+           'type' => 'adventcalender',
+           'order' => 'ASC'
         ) );
 ?>
 
