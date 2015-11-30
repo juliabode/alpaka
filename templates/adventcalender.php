@@ -15,7 +15,7 @@
 
     } ?>
 
-    <h2><?php _e('Advent Calender', 'roots'); ?></h2>
+    <h2><?php _e('Advent Calendar', 'roots'); ?></h2>
     <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
 
         <?php foreach ($custom_posts as $post) { ?>

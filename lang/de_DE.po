@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Alpaka\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-30 19:49+0100\n"
+"POT-Creation-Date: 2015-11-30 19:59+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Lulisaurus <julia.bode@lulisaur.us>\n"
@@ -271,7 +271,7 @@ msgid "Not Found"
 msgstr ""
 
 #: templates/adventcalender.php:18
-msgid "Advent Calender"
+msgid "Advent Calendar"
 msgstr "Adventskalender"
 
 #: templates/comment.php:4
