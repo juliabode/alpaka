@@ -1,9 +1,5 @@
 .adventcalender {
-    background: url("../img/xmas-bg.png");
     margin-bottom: 60px;
-    border: 2px solid #0C6F0C;
-    border-radius: 5px;
-
     a:hover {
         text-decoration: none;
     }
@@ -11,7 +7,7 @@
     h2 {
         background: #930404;
         text-align: center;
-        margin: 20px -22px 40px;
+        margin: 20px -22px 0;
         font-size: 2em;
         color: #F5F5F5;
         font-family: "Vollkorn";
@@ -26,47 +22,104 @@
             border-style: solid;
             bottom: -20px;
             content: '';
+            z-index: -2;
         }
 
         &:before {
             left: 0;
-            border-width: 20px 0 0 20px;
+            border-width: 20px 0 0 25px;
         }
 
         &:after {
             right: 0;
-            border-width: 20px 20px 0 0;
+            border-width: 20px 25px 0 0;
         }
     }
 
     ul {
-        padding: 0 15px 15px;
         text-align: center;
 
-        @media all and (max-width: $bp-med) {
-            li {
-                padding-bottom: 0.5em;
+        li {
+            display: block;
+            float: left;
+            width: 33.33%;
+
+            @media all and (min-width: $bp-med) {
+                width: 16.66%;
             }
         }
 
         .door {
-            border: 1px solid rgba(245,245,245,0.1);
-            background: #930404;
-            padding: 10px 0;
-            border-radius: 10px;
+            background: $white;
+            padding: 28px 0;
             font-family: Vollkorn;
             font-size: 36px;
-            color: #F5F5F5;
-            box-shadow: rgba(0,0,0,0.3) 0 1px 1px;
+            color: $pink;
 
             &.open {
                 background-size: cover;
                 border-color: #930404;
+                background-position: center;
             }
         }
     }
-}
 
+    li:nth-child(1),
+    li:nth-child(4),
+    li:nth-child(20) {
+        width: 66.66%;
+
+        @media all and (min-width: $bp-med) {
+            width: 33.33333334%;
+        }
+
+        .door {
+            padding: 83px 0;
+        }
+    }
+
+    li:nth-child(4),
+    li:nth-child(20) {
+        float: right;
+    }
+
+    li:nth-child(7),
+    li:nth-child(16),
+    li:nth-child(18) {
+        width: 66.66%;
+
+        @media all and (min-width: $bp-med) {
+            width: 33.33%;
+        }
+    }
+
+    li:nth-child(4),
+    li:nth-child(8),
+    li:nth-child(12),
+    li:nth-child(16),
+    li:nth-child(15),
+    li:nth-child(24),
+    li:nth-child(22) {
+        .door {
+            background-color: $light-pink;
+            color: #F5F5F5;
+        }
+    }
+
+    li:nth-child(3),
+    li:nth-child(5),
+    li:nth-child(9),
+    li:nth-child(13),
+    li:nth-child(11),
+    li:nth-child(21),
+    li:nth-child(18),
+    li:nth-child(20) {
+        .door {
+            background-color: $pink;
+            color: #F5F5F5;
+        }
+    }
+}
 
 // Snowflakes Config
 $flakes: 150; // match flakes in mark up
