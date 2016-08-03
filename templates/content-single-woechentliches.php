@@ -26,7 +26,7 @@
 
         <div class="post-content">
             <div class="entry-content">
-                <?php echo $post[0]->post_excerpt; ?>
+                <p><?php echo $post[0]->post_excerpt; ?></p>
                 <p class="read-more"><a href="<?php echo $post[0]->guid; ?>"><?php _e('Continue reading', 'roots'); ?></a></p>
             </div>
             <?php include(locate_template('templates/social-box.php')); ?>
