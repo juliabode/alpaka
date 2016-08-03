@@ -1,6 +1,6 @@
 <div class="large-8 medium-8 small-12 column">
 
-    <?php echo do_shortcode('[adventcalender]'); ?>
+    <?php //echo do_shortcode('[adventcalender]'); ?>
 
     <?php if (!have_posts()) : ?>
       <div class="alert alert-warning">
